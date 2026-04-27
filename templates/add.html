@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Food Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-color: #f0f2f5;
+        }
+
+        body {
+            font-family: 'Poppins', 'Kanit', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+            /* แก้ไขตรงนี้เพื่อให้ทุกอย่างอยู่ตรงกลางและเรียงเป็นแนวตั้ง */
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 500px; /* คุมขนาดความกว้างไม่ให้ล้น */
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-header {
+            background: var(--primary-gradient);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .form-header h2 { margin: 0; font-size: 1.8rem; }
+        .form-header p { opacity: 0.8; margin: 5px 0 0; font-size: 0.9rem; }
+
+        form { 
+            padding: 30px; 
+            display: block; /* มั่นใจว่าฟอร์มเรียงลงมาด้านล่าง */
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #edf2f7;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box; /* ป้องกัน Input ล้นขอบ */
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: #f8fafc;
+        }
+
+        textarea { resize: vertical; min-height: 80px; }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #718096;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h2>➕ เพิ่มสินค้าใหม่</h2>
+            <p>กรอกรายละเอียดเมนูอาหารของคุณ</p>
+        </div>
+
+        <form method="POST">
+            <div class="form-group">
+                <label>ชื่อสินค้า</label>
+                <input type="text" name="product_name" placeholder="เช่น กะเพราไก่ไข่ดาว" required>
+            </div>
+
+            <div class="form-group">
+                <label>รายละเอียด</label>
+                <textarea name="product_description" placeholder="บรรยายความอร่อยตรงนี้..."></textarea>
+            </div>
+
+            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                <div style="flex: 1;">
+                    <label>ราคา (บาท)</label>
+                    <input type="number" step="0.01" name="product_price" placeholder="0.00" required>
+                </div>
+                <div style="flex: 1;">
+                    <label>สต็อก (ชิ้น)</label>
+                    <input type="number" name="product_stock" placeholder="0" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>URL รูปภาพสินค้า</label>
+                <input type="text" name="product_image_url" placeholder="วางลิงก์รูปภาพที่นี่">
+            </div>
+
+            <button type="submit" class="btn-submit">🚀 บันทึกสินค้า</button>
+            
+            <a href="/" class="back-link">⬅ ยกเลิกและกลับหน้าหลัก</a>
+        </form>
+    </div>
+
+</body>
+</html>
