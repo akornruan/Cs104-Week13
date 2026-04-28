@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # --- ฟังก์ชันจัดการฐานข้อมูล ---
 def init_db():
-    conn = sqlite3.connect('gaiyang.db') # ชื่อไฟล์ DB เดิมได้ หรือจะเปลี่ยนเป็น food.db ก็ได้ครับ
+    conn = sqlite3.connect('/home/Akorn/Cs104-Week13/food_made_to_order_shop.db')
     c = conn.cursor()
     # สร้างตารางหมวดหมู่
     c.execute('''CREATE TABLE IF NOT EXISTS categories (
@@ -25,7 +25,7 @@ def init_db():
     conn.close()
 
 def get_db_connection():
-    conn = sqlite3.connect('gaiyang.db')
+    conn = sqlite3.connect('/home/Akorn/Cs104-Week13/food_made_to_order_shop.db')
     conn.row_factory = sqlite3.Row
     return conn
 
